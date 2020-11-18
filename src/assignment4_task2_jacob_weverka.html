@@ -462,6 +462,7 @@ These are absolute counts, but this count is also impacted by effort (e.g. the 
   filter(age == &quot;j&quot;) %&gt;%
   group_by(year) %&gt;%
   count()</code></pre>
+<p>Make plot of juvenile captures by year</p>
 <pre class="r"><code>ggplot(juv_hares, aes(x = year, y = n)) +
   geom_line() +
   xlab(&quot;Year&quot;) +
@@ -474,6 +475,7 @@ These are absolute counts, but this count is also impacted by effort (e.g. the 
 Figure 1: Juvenile hares caught in traps during each year of study
 </p>
 </div>
+<p>The mean number of juvenile hares caught annually was 31.5 and the median was 18.5. The most hares caught in a year was 126 and the least was 2.</p>
 </div>
 
 

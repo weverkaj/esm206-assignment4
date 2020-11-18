@@ -62,7 +62,7 @@ juv_hares = hares %>%
 
 ```
 
-
+Make plot of juvenile captures by year
 
 ```{r fig.cap = "Juvenile hares caught in traps during each year of study"}
 ggplot(juv_hares, aes(x = year, y = n)) +
@@ -72,6 +72,8 @@ ggplot(juv_hares, aes(x = year, y = n)) +
   theme_bw() +
   scale_x_continuous(breaks = seq(1999, 2012, 2))
 ```
+
+The mean number of juvenile hares caught annually was `r mean(juv_hares$n)` and the median was `r median(juv_hares$n)`. The most hares caught in a year was `r max(juv_hares$n)` and the least was `r min(juv_hares$n)`. 
 
 
 
