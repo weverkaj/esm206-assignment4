@@ -1,0 +1,94 @@
+---
+title: "Bonanza Hares"
+author: "Jacob Weverka"
+date: "11/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+library(broom)
+
+```
+
+## Put some introductory Text here
+
+Introduction: A 4 - 5 sentence "mini-introduction" to what this study is exploring, including basic background information about the subject, site and study (with citations as needed), and a brief overview of what is included in the exploratory report. You should probably do this last.
+
+
+
+Read in data
+```{r}
+hares_data = read_csv(here::here("data/bonanza_hares.csv"))
+```
+
+## Put a description of data and maind analyses here
+
+Data and analyses: A 3 - 4 sentence section in which you briefly describe the data, including citation & credit as needed, and provide an overview of the main analysis, statistical methods and tools used.
+
+
+Clean up data (dates)
+```{r}
+
+hares = hares_data %>%
+  mutate(date = lubridate::mdy(date)) %>%
+  mutate(year = lubridate::year(date))
+
+
+```
+
+## Exploratory findings
+
+Annual juvenile hare trap counts. Count the total number of juvenile (age == "j") hare trappings during each year of the study (include all grid sites), and create a finalized data visualization of the counts by year. Include a figure caption below the figure in your report. 
+
+Then, in 3 - 4 sentences below your figure, describe major takeaways from your graph about total snowshoe hare trappings at the site. You might consider:
+
+What were the minimum and maximum counts of juvenile hare trappings?
+Mean or median annual number of juvenile hares trapped?
+General/notable trends?
+These are absolute counts, but this count is also impacted by effort (e.g. the number of days and number of traps in the study each year). What would you suggest be done moving forward (you are not expected to actually do this) to standardize the juvenile hare population in future analyses?
+
+
+```{r}
+
+juv_hares = hares %>%
+  filter(age == "j") %>%
+  group_by(year) %>%
+  count()
+
+
+```
+
+
+
+```{r fig.cap = "Juvenile hares caught in traps during each year of study"}
+ggplot(juv_hares, aes(x = year, y = n)) +
+  geom_line() +
+  xlab("Year") +
+  ylab("Number of Juvenile Hares Caught") +
+  theme_bw() +
+  scale_x_continuous(breaks = seq(1999, 2012, 2))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
