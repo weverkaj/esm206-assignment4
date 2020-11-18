@@ -2,7 +2,7 @@
 title: "Bonanza Hares"
 author: "Jacob Weverka"
 date: "11/16/2020"
-output: html_document
+output: bookdown::html_document2
 ---
 
 ```{r setup, include=FALSE}
