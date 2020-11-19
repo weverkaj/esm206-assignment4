@@ -238,7 +238,7 @@ The plot and the linear model show a positive relationship between snowshoe hare
 
 Diagnostic plots for the linear model
 
-```{r include = FALSE, echo=TRUE}
+```{r echo=TRUE, eval = FALSE}
 plot(hare_mod)
 ```
 
